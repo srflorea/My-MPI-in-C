@@ -1,0 +1,42 @@
+Florea Stefan - Razvan
+331CB
+Sisteme de Operare
+Tema2 - MPI
+
+In acest proiect am realizat o implementare simplificata de MPI, 
+in care procesele comunica folosind mecanisme IPC.
+Pentru aceasta am implementat functiile ce ajuta la comunicarea
+intre procese folosind MPI. In continuare o sa detaliez
+functionalitatea fiecarei functii.
+In functia main a aplicatiei se aloca spatiul pentru cele 'np'
+procese in structura mpi_comm_world, ce va contine informatii despre
+toate procesel ce vor rula. Se va crea o memorie partajata in care
+se pune numarul de procese 'np' si inca una ce va contine structura
+de date 'mpi_comm_world'  astfel oferindu-se posibilitatea tuturor
+proceselor sa obtina informatii despre celelalte procese in orice
+moment. Fiecare proces va detine o coada in care se vor depune
+informatii, iar respectivul proces va citi. Astfel se realizeaza
+comunicarea intre procese. Pentru trimiterea de informatii am de la
+un proces la altul am folosit doua structuri de date: 
+'struct_to_send', structura ce va fi trimisa cu ajutorul cozii
+catre procesul dorit si 'struct_to_rec', structura ce va fi primita
+si din care se vor obtine informatiile necesare.
+Dupa ce toti copiii creati isi incheie executia se vor inchide
+memoriile partajate si cozile deschise.
+In functia MPI_Init se obtine numarul de procese din prima memorie
+partajata si se depune intr-o, dupa care se obtine rank procesului
+din cea de-a doua memorie partajata.
+Functiile MPI_Initialized, MPI_Comm_size, MPI_Com_rank, 
+MPI_Finalize, MPI_Finalized, MPI_Get_count dupa ce realizeaza
+verificarile de posibile erori, vor indeplini functia sugestiva
+din nume.
+Functia MPI_Send va seta campurile structurii 'struct_to_send', 
+va deschide coada procesului catre care se doreste trimiterea de
+infomatii, dupa care se depune structura in respectiva coada.
+Functia MPI_Recv va deschide propria coada de mesaje, va citi din
+aceasta informatia primita, va seta campurile structurii Mpi_status,
+dupa care va scrie informatia citita un bufferul 'buf'.
+In urma compilarii rezulta o biblioteca dinamica cu numele
+libsompi.so si un executabil cu numele mpirun.
+Arhiva contine sursele proiectului, fisierul Makefile si acest
+fisier README.
