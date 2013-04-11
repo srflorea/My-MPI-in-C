@@ -1,8 +1,3 @@
-Florea Stefan - Razvan
-331CB
-Sisteme de Operare
-Tema2 - MPI
-
 In acest proiect am realizat o implementare simplificata de MPI, 
 in care procesele comunica folosind mecanisme IPC.
 Pentru aceasta am implementat functiile ce ajuta la comunicarea
@@ -38,5 +33,3 @@ aceasta informatia primita, va seta campurile structurii Mpi_status,
 dupa care va scrie informatia citita un bufferul 'buf'.
 In urma compilarii rezulta o biblioteca dinamica cu numele
 libsompi.so si un executabil cu numele mpirun.
-Arhiva contine sursele proiectului, fisierul Makefile si acest
-fisier README.
